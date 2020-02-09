@@ -1,0 +1,19 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "description": "First Steps w/ Node.js & React",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx"
+  },
+  "author": {
+    "name": "Gonçalo Baltazar",
+    "email": "hello@goncalomb.com",
+    "url": "http://goncalomb.com/"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "mdx-deck": "^3.1.0"
+  }
+}
