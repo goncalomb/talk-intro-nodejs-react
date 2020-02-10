@@ -1,4 +1,9 @@
 import { Notes, Appear } from 'mdx-deck';
+import { highlight } from 'mdx-deck/themes'
+
+import { CenterContainer } from './components';
+
+export const themes = [ highlight ];
 
 # First Steps w/ Node.js & React
 
@@ -96,3 +101,48 @@ The plain, old, boring JavaScript...
         <li>2019: NPM hits 1 million packages</li>
     </Appear>
 </ul>
+
+---
+
+### Install Node.js (LTS 12.15.0)
+
+<CenterContainer>
+
+https://nodejs.org/en/<br/>
+https://nodejs.org/en/download/package-manager/<br/>
+
+**MacOS**<br/>
+Download the Installer or using Brew:
+
+```bash
+brew install node
+```
+
+**Linux Debian** <small>(NodeSource Binaries)</small>:
+
+```bash
+curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
+```
+
+**Windows**<br/>
+Download the Installer or using Chocolatey:
+
+```bash
+choco install nodejs.install
+```
+
+</CenterContainer>
+
+---
+
+### Download the Files
+
+```sh
+git clone https://github.com/goncalomb/talk-intro-nodejs-react.git
+```
+
+If you don't have git installed. Shame on you. Just download the ZIP from:
+
+https://github.com/goncalomb/talk-intro-nodejs-react
+
+After this talk, go home and install git.
