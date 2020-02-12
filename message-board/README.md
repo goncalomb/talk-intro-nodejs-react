@@ -1,0 +1,40 @@
+# message-board
+
+A demo React app with a custom Webpack configuration.
+
+## How I created this project?
+
+I started by initializing the package, installing Webpack and some plugins:
+
+    npm init
+    npm install -D webpack webpack-cli webpack-dev-server html-webpack-plugin
+
+Then I created the basic folder structure:
+
+    src/
+    webpack.config.js
+
+Installed Babel for transpiling code:
+
+    npm install -D @babel/core @babel/preset-env babel-loader
+
+And of course, React:
+
+    npm install -D react react-dom @babel/preset-react
+
+Then configured the build process on `webpack.config.js` and `package.json`.
+
+References on how to configure Webpack:
+
+* https://webpack.js.org/guides/getting-started/
+* https://webpack.js.org/configuration/
+* https://webpack.js.org/plugins/
+* https://github.com/webpack/webpack
+* https://github.com/webpack/webpack-cli
+* https://github.com/webpack/webpack-dev-server
+* https://github.com/babel/babel
+* https://github.com/babel/babel-loader
+
+### But you don't need to do this...
+
+TODO
