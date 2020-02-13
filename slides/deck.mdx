@@ -1,15 +1,40 @@
 import { Notes, Appear } from 'mdx-deck';
 import { highlight } from 'mdx-deck/themes'
 
-import { CenterContainer } from './components';
+import { CenterContainer, List, ImageTable } from './components';
 
-export const themes = [ highlight ];
+export const themes = [
+    highlight,
+    {
+        styles: {
+            a: {
+                textDecoration: 'none'
+            }
+        }
+    }
+];
+
+import logoXpandIT from './assets/xpandit-logo.png';
+import logoSINFO from './assets/dl/sinfo.png';
 
 # First Steps w/ Node.js & React
 
+<CenterContainer>
+
 Gonçalo Baltazar
 
-Web Developer @ Xpand IT
+Product Engineer @ Xpand IT
+
+</CenterContainer>
+
+<ImageTable imgMaxHeight="100px">
+    <div>
+        <img src={logoXpandIT} />
+    </div>
+    <div>
+        <img src={logoSINFO} style={{ filter: "invert(1)"}} />
+    </div>
+</ImageTable>
 
 <Notes>
 
@@ -22,13 +47,61 @@ Web Developer @ Xpand IT
 
 ## Xpand IT
 
-Services and Applications
+Services and Products
+
+<CenterContainer>
+
+Atlassian Applications
+
+**Xray** and **Xporter**
+
+</CenterContainer>
+
+<Notes>
+
+we are a company that delivers custom solutions to our clients, websites, mobile applications
+
+we also have 2 products in the atlassian ecosystem
+
+</Notes>
 
 ---
 
-### Technologies
+import logoNodejs from './assets/dl/nodejs.svg';
+import logoReact from './assets/dl/react.svg';
+import logoWebpack from './assets/dl/webpack.svg';
+import logoDocker from './assets/dl/docker.png';
+import logoKubernetes from './assets/dl/kubernetes.svg';
+import logoAWS from './assets/dl/aws.svg';
 
-Node.js React Webpack Docker Kubernetes AWS
+### Technologies for Cloud Applications
+
+<ImageTable>
+    <div>
+        <img src={logoNodejs} />
+        <figcaption>Node.js</figcaption>
+    </div>
+    <div>
+        <img src={logoReact} />
+        <figcaption>React</figcaption>
+    </div>
+    <div>
+        <img src={logoWebpack} />
+        <figcaption>Webpack</figcaption>
+    </div>
+    <div>
+        <img src={logoDocker} />
+        <figcaption>Docker</figcaption>
+    </div>
+    <div>
+        <img src={logoKubernetes} />
+        <figcaption>Kubernetes</figcaption>
+    </div>
+    <div>
+        <img src={logoAWS} />
+        <figcaption>AWS</figcaption>
+    </div>
+</ImageTable>
 
 ---
 
@@ -55,13 +128,13 @@ Asynchronous event-driven runtime with non-blocking I/O.
 ### In the Beginning
 
 <Appear>
-    <ul style={{ maxWidth: "85%" }}>
+    <List>
         <li>1995: First version of JavaScript (Netscape)</li>
         <li>1997: ECMAScript 1</li>
         <li>1999: ECMAScript 2</li>
         <li>2000: Internet Explorer dominates the Browser Wars</li>
         <li>2006: jQuery</li>
-    </ul>
+    </List>
 
 The plain, old, boring JavaScript...
 
@@ -71,7 +144,7 @@ The plain, old, boring JavaScript...
 
 ### Breaking free of the Browser
 
-<ul style={{ maxWidth: "85%" }}>
+<List>
     <Appear>
         <div>
             <li>2008: Chrome and the V8 Engine</li>
@@ -100,7 +173,11 @@ The plain, old, boring JavaScript...
         </div>
         <li>2019: NPM hits 1 million packages</li>
     </Appear>
-</ul>
+</List>
+
+---
+
+## Demos
 
 ---
 
@@ -141,8 +218,76 @@ choco install nodejs.install
 git clone https://github.com/goncalomb/talk-intro-nodejs-react.git
 ```
 
-If you don't have git installed. Shame on you. Just download the ZIP from:
+If you don't have git installed. Just download the ZIP from:
 
 https://github.com/goncalomb/talk-intro-nodejs-react
 
 After this talk, go home and install git.
+
+---
+
+## React
+
+---
+
+### What is React
+
+* Library for User Interfaces
+* Declarative
+* Reusable Components
+
+---
+
+### Demos
+
+---
+
+TODO
+
+---
+
+## Gonçalo Baltazar
+
+<CenterContainer>
+
+hello@goncalomb.com
+
+{ goncalomb.com } | { github.com/goncalomb } | { twitter.com/goncalomb }
+
+</CenterContainer>
+
+## Questions?
+
+<Appear>
+
+* What? These slides are made with React?
+* How do we create apps entirely in React?
+* Can React run on the Server?
+* What is Docker?
+* Do you know about the P3 CPU?
+
+</Appear>
+
+---
+
+## Xpand IT
+
+<CenterContainer>
+
+We are hiring!
+
+https://www.xpand-it.com/pt-pt/job-opportunities/
+
+Java, JavaScript, Android, iOS, Big Data, Testing, QA and More...
+
+</CenterContainer>
+
+Visit our stand at the SINFO Tent.
+
+<CenterContainer>
+
+And follow XTech Community on Medium
+
+https://medium.com/xtechportugal
+
+</CenterContainer>

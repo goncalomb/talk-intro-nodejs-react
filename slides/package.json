@@ -1,6 +1,7 @@
 {
   "name": "slides",
   "version": "1.0.0",
+  "private": true,
   "description": "First Steps w/ Node.js & React",
   "scripts": {
     "start": "mdx-deck deck.mdx",
@@ -12,8 +13,8 @@
     "url": "http://goncalomb.com/"
   },
   "license": "UNLICENSED",
-  "private": true,
   "devDependencies": {
+    "@emotion/styled": "^10.0.27",
     "mdx-deck": "^3.1.0"
   }
 }
