@@ -24,6 +24,10 @@ And of course, React:
 
 Then configured the build process on `webpack.config.js` and `package.json`.
 
+Finally I installed some extra libraries:
+
+    npm install -D styled-components
+
 References on how to configure Webpack:
 
 * https://webpack.js.org/guides/getting-started/
