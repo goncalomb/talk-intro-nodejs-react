@@ -6,25 +6,25 @@ const path = require('path');
 console.log('hi');
 
 setTimeout(() => {
-    // this is run on the timers phase
+    // this runs on the timers phase
     console.log(3);
 });
 
 fs.readFile(path.join(__dirname, '..', 'README.md'), (err, data) => {
-    // this is run on the io phase
+    // this runs on the io phase
     console.log(`file with ${data.length} bytes`);
     setImmediate(() => {
-        // this is run on the check phase
+        // this runs on the check phase
         console.log(7);
     });
     Promise.resolve().then(() => {
-        // this is run between phases
+        // this runs between phases
         console.log(3);
     });
 });
 
 process.nextTick(() => {
-    // this is run between phases
+    // this runs between phases
     console.log(1);
 });
 
