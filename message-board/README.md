@@ -2,7 +2,7 @@
 
 A demo React app with a custom Webpack configuration.
 
-## How I created this project?
+## How I created this project? (the hard way, read the next section for the easy route)
 
 I started by initializing the package, installing Webpack and some plugins:
 
@@ -41,4 +41,13 @@ References on how to configure Webpack:
 
 ### But you don't need to do this...
 
-TODO
+You can start by using some toolchains to bootstrap your project:
+
+* https://reactjs.org/docs/create-a-new-react-app.html
+* https://github.com/facebook/create-react-app
+
+These provide very good initial configurations that you can then adapt to your needs.
+
+Using `create-react-app` is a as easy as:
+
+    npx create-react-app my-app-name
