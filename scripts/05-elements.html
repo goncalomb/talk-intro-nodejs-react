@@ -1,0 +1,28 @@
+<script src="https://unpkg.com/react@16.12.0/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.production.min.js"></script>
+
+<p>DOM APIs:</p>
+<div id="root0"></div>
+<p>React APIs:</p>
+<div id="root1"></div>
+
+<script>
+    const el0 = document.createElement('a');
+    el0.setAttribute('href', 'https://www.google.com/');
+    el0.style.fontSize = '2em';
+    el0.innerText = 'Google';
+    document.getElementById('root0').appendChild(el0);
+
+    const el1 = React.createElement('a', {
+        href: 'https://www.google.com/',
+        style: {
+            fontSize: '2em'
+        }
+    }, 'Google');
+    ReactDOM.render(el1, document.getElementById('root1'));
+
+    console.log(el0);
+    console.log(el1);
+
+    /* create the RED span */
+</script>

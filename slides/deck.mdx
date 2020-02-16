@@ -46,17 +46,23 @@ Product Engineer @ Xpand IT
 
 ---
 
+import logoXray from './assets/dl/xray.png';
+import logoXporter from './assets/dl/xporter.png';
+
 ## Xpand IT
 
 Services and Products
 
-<CenterContainer>
+Atlassian Apps for Jira (add-ons)
 
-Atlassian Applications
-
-**Xray** and **Xporter**
-
-</CenterContainer>
+<ImageTable collapse imgMaxHeight="250px">
+    <div>
+        <img src={logoXray} />
+    </div>
+    <div>
+        <img src={logoXporter} style={{transform: "translateY(2px)"}} />
+    </div>
+</ImageTable>
 
 <Notes>
 
@@ -239,7 +245,56 @@ After this talk, go home and install git.
 
 ---
 
-### Demos
+React Elements
+
+```js
+const el = document.createElement('a');
+el.setAttribute('href', 'https://www.google.com/');
+el.style.fontSize = '2em';
+el.innerText = 'Google';
+document.body.appendChild(el);
+```
+
+```js
+const el = React.createElement('a', {
+    href: 'https://www.google.com/',
+    style: {
+        fontSize: '2em'
+    }
+}, 'Google');
+ReactDOM.render(el, document.body);
+```
+
+---
+
+### Demo
+
+---
+
+### JSX
+
+```js
+const el = React.createElement('a', {
+    href: 'https://www.google.com/',
+    style: {
+        fontSize: '2em'
+    }
+}, 'Google');
+```
+
+```jsx
+const el = (
+    <a href='https://www.google.com/' style={{ fontSize: '2em' }}>
+        Google
+    </a>
+);
+```
+
+---
+
+### Components
+
+
 
 ---
 
@@ -283,7 +338,7 @@ Java, JavaScript, Android, iOS, Big Data, Testing, QA and More...
 
 </CenterContainer>
 
-Visit our stand at the SINFO Tent.
+Visit our stand at the SINFO tent.
 
 <CenterContainer>
 

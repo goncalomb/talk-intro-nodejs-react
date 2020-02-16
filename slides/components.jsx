@@ -19,7 +19,7 @@ export const List = styled.ul`
 
 export const ImageTable = styled.div`
     display: flex;
-    width: 85vw;
+    ${({ collapse = false }) => (collapse ? 'max-' : '') }width: 85vw;
     text-align: center;
     margin: 1em 0;
     div {
@@ -28,8 +28,8 @@ export const ImageTable = styled.div`
         flex: 1;
     }
     img {
-        max-height: ${({ imgMaxHeight = "200px" }) => imgMaxHeight };
-        object-fit: fill;
+        ${({ collapse = false }) => (collapse ? '' : 'max-') }height: ${({ imgMaxHeight = "200px" }) => imgMaxHeight };
+        object-fit: ${({ collapse = false }) => (collapse ? 'cover' : 'unset') };
         margin: auto;
     }
 `;
