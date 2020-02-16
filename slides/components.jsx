@@ -11,7 +11,7 @@ export const CenterContainer = styled.div`
 `;
 
 export const List = styled.ul`
-    max-width: 85%;
+    max-width: 85vw;
     small {
         color: grey;
     }
@@ -19,7 +19,7 @@ export const List = styled.ul`
 
 export const ImageTable = styled.div`
     display: flex;
-    width: 85%;
+    width: 85vw;
     text-align: center;
     margin: 1em 0;
     div {
@@ -32,4 +32,4 @@ export const ImageTable = styled.div`
         object-fit: fill;
         margin: auto;
     }
-`
+`;
