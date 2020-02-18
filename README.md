@@ -29,12 +29,13 @@ Learn by doing!
 ### JavaScript / HTML
 
 * https://developer.mozilla.org/en-US/
+* http://es6-features.org/
 * https://caniuse.com/
 
 ### Node.js
 
-* https://nodejs.org/en/docs/guides/
 * https://nodejs.dev/
+* https://nodejs.org/en/docs/guides/
 
 Understand NPM and how to use it: https://docs.npmjs.com/about-npm/
 

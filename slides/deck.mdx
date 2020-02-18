@@ -1,5 +1,5 @@
 import { Notes, Appear } from 'mdx-deck';
-import { highlight } from 'mdx-deck/themes'
+import { highlight } from 'mdx-deck/themes';
 
 import './hacks'
 import { CenterContainer, List, ImageTable } from './components';
@@ -51,6 +51,8 @@ import logoXporter from './assets/dl/xporter.png';
 
 ## Xpand IT
 
+**xpand-it.com**
+
 Services and Products
 
 Atlassian Apps for Jira (add-ons)
@@ -66,9 +68,8 @@ Atlassian Apps for Jira (add-ons)
 
 <Notes>
 
-we are a company that delivers custom solutions to our clients, websites, mobile applications
-
-we also have 2 products in the atlassian ecosystem
+* we deliver custom solutions to our clients, websites, mobile applications, big data solutions, etc.
+* we also have two products in the atlassian ecosystem
 
 </Notes>
 
@@ -110,6 +111,13 @@ import logoAWS from './assets/dl/aws.svg';
     </div>
 </ImageTable>
 
+<Notes>
+
+* some technologies we use to deliver our cloud applications
+* do you know, JavaScript, Node.js, ...
+
+</Notes>
+
 ---
 
 ## Node.js
@@ -118,17 +126,27 @@ import logoAWS from './assets/dl/aws.svg';
 
 ### What is Node.js
 
+Ryan Dahl, circa 2009
+
 <Appear>
 
 JavaScript outside the Browser.
 
 * V8 Engine (Google)
-* Event Loop
+* Event Loop (libuv)
 * APIs (stream, os, fs, net, http, crypto, ...)
 
 Asynchronous event-driven runtime with non-blocking I/O.
 
 </Appear>
+
+<Notes>
+
+* created in 2009
+* combines the V8 with event loop and some libraries
+* asynchronous runtime
+
+</Notes>
 
 ---
 
@@ -137,15 +155,23 @@ Asynchronous event-driven runtime with non-blocking I/O.
 <Appear>
     <List>
         <li>1995: First version of JavaScript (Netscape)</li>
+        <li>1996: LiveWire, the first JS server-side runtime (Netspace)</li>
         <li>1997: ECMAScript 1</li>
         <li>1999: ECMAScript 2</li>
-        <li>2000: Internet Explorer dominates the Browser Wars</li>
+        <li>2000: <strong>Internet Explorer</strong> dominates the Browser Wars</li>
         <li>2006: jQuery</li>
     </List>
 
 The plain, old, boring JavaScript...
 
 </Appear>
+
+<Notes>
+
+* just a small of history
+* created in 1995, up untill 2008 js was for the browser
+
+</Notes>
 
 ---
 
@@ -154,17 +180,17 @@ The plain, old, boring JavaScript...
 <List>
     <Appear>
         <div>
-            <li>2008: Chrome and the V8 Engine</li>
-            <li>2009: Node.js</li>
+            <li>2008: Google Chrome and the V8 Engine</li>
+            <li>2009: <strong>Node.js</strong></li>
             <li>
                 2009: ECMAScript 5<br/>
                 <small>"use strict", json, getters/setters, array/object methods</small>
             </li>
         </div>
         <div>
-            <li>2012: Chrome dominates the Browser Wars</li>
+            <li>2012: <strong>Google Chrome</strong> dominates the Browser Wars</li>
             <li>
-                2012-????: Express, Lodash, Webpack, React, Vue.js, Babel<br/>
+                2012-NOW: Express, Lodash, Webpack, React, Vue.js, Babel<br/>
                 <small>and thousand more packages are born...</small>
             </li>
         </div>
@@ -178,13 +204,109 @@ The plain, old, boring JavaScript...
                 <small>await/async, exponentiation operator, spread operator for objects, promise finally, regex updates, more built-in methods, ...</small>
             </li>
         </div>
-        <li>2019: NPM hits 1 million packages</li>
+        <li>2019: NPM hits <strong>1 million packages</strong></li>
     </Appear>
 </List>
+
+<Notes>
+
+* chrome and node born in 2009
+* by 2012 chrome is dominating the scene
+* thousand packages
+
+</Notes>
+
+---
+
+## Hello World
+
+<Appear>
+
+```js
+setTimeout(function() {
+    console.log('world');
+}, 500);
+
+console.log('hello');
+```
+
+* A single thread, asynchronous execution
+* Callbacks are scheduled to run later (on the event loop)
+
+</Appear>
+
+<Notes>
+
+* don't block the event loop
+* io need time
+* i have a lot of information on this repo, research at home
+
+</Notes>
+
+---
+
+## Compare to Java
+
+```java
+System.out.println("hello");
+Thread.sleep(500);
+System.out.println("world");
+```
+
+<Notes>
+
+* blocking the thread
+
+</Notes>
+
+---
+
+## Node Modules (CommonJS)
+
+```js
+// 'main.js'
+const someModule = require('./some-module');
+someModule.someFunction();
+
+// 'some-module.js'
+module.exports = {
+    someFunction: function() { }
+}
+```
+
+* Node.js uses this format from the beginning.
+
+---
+
+## New Module (ES6)
+
+```js
+// 'main.js'
+import * as someModule from './some-module';
+import { someFunction } from './some-module';
+someModule.someFunction();
+someFunction();
+
+// 'some-module.js'
+export function someFunction() { }
+```
+
+* This is the "new" standard for modules (ECMAScript 6).
+* We will use this format on React and use Babel to convert.
 
 ---
 
 ## Demos
+
+<Notes>
+
+* 00-hello-world.js
+* 01-read-file.js
+* 02-event-loop.js
+* 03-http.js
+* 04-express.js
+
+</Notes>
 
 ---
 
@@ -206,6 +328,7 @@ brew install node
 
 ```bash
 curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
+sudo apt-get install -y nodejs
 ```
 
 **Windows**<br/>
@@ -235,17 +358,33 @@ After this talk, go home and install git.
 
 ## React
 
+<Notes>
+
+* js on the client
+* do you know react?
+
+</Notes>
+
 ---
 
 ### What is React
+
+Originally created by Facebook
 
 * Library for User Interfaces
 * Declarative
 * Reusable Components
 
+<Notes>
+
+* declarative ui Library
+* packages with reusable components
+
+</Notes>
+
 ---
 
-React Elements
+### React Elements
 
 ```js
 const el = document.createElement('a');
@@ -265,9 +404,23 @@ const el = React.createElement('a', {
 ReactDOM.render(el, document.body);
 ```
 
+<Notes>
+
+* i don't have time to explain all aspect of React
+* props, children
+* compare with html api
+
+</Notes>
+
 ---
 
 ### Demo
+
+<Notes>
+
+* 05-elements.html
+
+</Notes>
 
 ---
 
@@ -290,15 +443,59 @@ const el = (
 );
 ```
 
+<Notes>
+
+* special syntax to create react elements
+* browser are not able to process it
+
+</Notes>
+
 ---
 
 ### Components
 
+```jsx
+function MyComponent(props) {
+    return (
+        <div>
+            <p>{props.name} ({props.age})</p>
+        </div>
+    );
+};
+ReactDOM.render(<MyComponent name="John" age={45} />, document.body);
+```
 
+<Notes>
+
+* we are not limited to the normal HTML tags
+* we are not calling the function
+* components
+
+</Notes>
 
 ---
 
-TODO
+### Demo
+
+<Notes>
+
+* 06-elements.jsx
+* 07-components.jsx
+* 07-components.html
+
+</Notes>
+
+---
+
+## Let's Play
+
+```bash
+cd message-board
+npm install
+npm start
+```
+
+See the 'TODOS.md' file.
 
 ---
 
@@ -308,7 +505,7 @@ TODO
 
 hello@goncalomb.com
 
-{ goncalomb.com } | { github.com/goncalomb } | { twitter.com/goncalomb }
+goncalomb.com | github.com/goncalomb | twitter.com/goncalomb
 
 </CenterContainer>
 
@@ -316,10 +513,8 @@ hello@goncalomb.com
 
 <Appear>
 
-* What? These slides are made with React?
-* How do we create apps entirely in React?
+* These slides are made with React?
 * Can React run on the Server?
-* What is Docker?
 * Do you know about the P3 CPU?
 
 </Appear>
