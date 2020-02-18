@@ -11,7 +11,7 @@ Tip: edit 'onSubmit' on `MessageForm.jsx` to not call the handler when the text 
 
 ## 3. Prevent saving configuration with empty username...
 
-Tip: edit 'onSubmit' on `onSubmit.jsx` to not call the handler when the username.
+Tip: edit 'onSubmit' on `ConfigurationForm.jsx` to not call the handler when the username is empty.
 
 ## 4. MessageList and App are very simple components without state, change them to function components...
 
