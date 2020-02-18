@@ -44,10 +44,10 @@ export default class ConfigurationForm extends React.Component {
         return (
             <form action="" onSubmit={this.onSubmit}>
                 <p>
-                    Username: <Input type="text" value={this.state.username} onChange={this.onUsernameChange} maxLength={32} placeholder="Username"/>
+                    Username: <Input type="text" value={this.state.username} onChange={this.onUsernameChange} maxLength={64} placeholder="Username"/>
                 </p>
                 <p>
-                    Server Address: <Input type="text" value={this.state.serverAddress} onChange={this.onServerAddressChange} maxLength={32} placeholder="Server Address"/>
+                    Server Address: <Input type="text" value={this.state.serverAddress} onChange={this.onServerAddressChange} maxLength={64} placeholder="Server Address"/>
                 </p>
                 <Button type="submit">Save</Button>
                 <Button type="button" onClick={null /* TODO: implement cancel button */}>Cancel</Button>

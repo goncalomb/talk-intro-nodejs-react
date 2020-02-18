@@ -2,6 +2,20 @@
 
 A demo React app with a custom Webpack configuration.
 
+## Commands
+
+    # start development server
+    npm start
+
+    # build app
+    npm run build
+
+    # start server
+    npm run start-server
+
+    # start tunnel
+    npm run start-tunnel
+
 ## How I created this project? (the hard way, read the next section for the easy route)
 
 I started by initializing the package, installing Webpack and some plugins:

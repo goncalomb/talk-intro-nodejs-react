@@ -9,9 +9,9 @@ Tip: check the `MessageList.jsx` file, use `(new Date(timestamp)).toISOString()`
 
 Tip: edit 'onSubmit' on `MessageForm.jsx` to not call the handler when the text is empty.
 
-## 3. Prevent saving an empty configuration...
+## 3. Prevent saving configuration with empty username...
 
-Tip: edit 'onSubmit' on `onSubmit.jsx` to not call the handler when the username or server address are empty.
+Tip: edit 'onSubmit' on `onSubmit.jsx` to not call the handler when the username.
 
 ## 4. MessageList and App are very simple components without state, change them to function components...
 

@@ -25,9 +25,9 @@ export default class MessageList extends React.Component {
         // we take the list of messages and create a Message component for each
         return (
             <BoxWithBorder style={{ overflowY: 'scroll' }}>
-                {this.props.messages.reverse().map(data => (
+                {this.props.messages.map(data => (
                     <Message key={data.id} data={data} onHide={() => { /* TODO: implement the hide button, remove this and pass a handler from props */ }} />
-                ))}
+                )).reverse()}
             </BoxWithBorder>
         );
     }

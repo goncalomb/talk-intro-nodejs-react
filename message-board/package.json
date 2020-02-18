@@ -5,6 +5,7 @@
   "description": "",
   "scripts": {
     "start-server": "node server.js",
+    "start-tunnel": "ssh -R 80:localhost:9000 localhost.run",
     "start": "webpack-dev-server",
     "build": "webpack"
   },
