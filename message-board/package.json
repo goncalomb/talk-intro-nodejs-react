@@ -4,10 +4,15 @@
   "private": true,
   "description": "",
   "scripts": {
+    "start-server": "node server.js",
     "start": "webpack-dev-server",
     "build": "webpack"
   },
-  "author": "",
+  "author": {
+    "name": "Gonçalo Baltazar",
+    "email": "hello@goncalomb.com",
+    "url": "http://goncalomb.com/"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -21,5 +26,8 @@
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
