@@ -41,6 +41,7 @@ if (typeof window !== 'undefined' && typeof window.document !== 'undefined') {
                 applyZoom(z);
                 e.stopPropagation();
                 break;
+            default: break;
         }
     })
 

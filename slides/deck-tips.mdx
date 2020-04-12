@@ -1,0 +1,213 @@
+import { Notes, Appear } from 'mdx-deck';
+import { highlight } from 'mdx-deck/themes';
+
+import './hacks'
+import { CenterContainer, List, ImageTable } from './components';
+
+export const themes = [
+    highlight,
+    {
+        styles: {
+            a: {
+                textDecoration: 'none'
+            }
+        }
+    }
+];
+
+# React Tips & Tricks
+
+---
+
+## React
+
+---
+
+### PureComponent
+
+```js
+class MyComponent extends React.PureComponent
+```
+
+```js
+shouldComponentUpdate(nextProps, nextState) {
+    return (
+        !shallowEqual(this.props, nextProps) ||
+        !shallowEqual(this.state, nextState)
+    );
+}
+```
+
+---
+
+### PureComponent
+
+Use PureComponent to avoid unnecessary render calls.
+
+* list items
+* connected components (Redux)
+* independent sections of an application
+
+Overhead is low.
+
+---
+
+### PureComponent
+
+```js
+const MyComponent = React.memo((props) => {
+  /* */
+});
+```
+
+---
+
+### "Complex" Render Functions
+
+Avoid passing objects to children that fail the shallow compare of PureComponent.
+
+* avoid inline event handlers (arrow functions)
+* avoid creating objects
+* avoid inline data manipulations
+* simple conditionals and primitive results are acceptable
+
+---
+
+This will trigger a render function of MyComponent...
+
+```jsx
+<MyComponent
+    someOptions={{
+        foo: true,
+        bar: "test"
+    }}
+/>
+```
+
+Even with PureComponent.
+
+---
+
+### Large Lists
+
+* consider virtualization libraries for large sets of data (react-virtualized)
+* react-dnd doesn't scale well with lots of targets (html5 dnd)
+
+---
+
+### Large Components
+
+Avoid monolithic components with large render functions.
+
+Favor small, pure components.
+
+---
+
+### But...
+
+---
+
+### Measure. Measure. Measure.
+
+React Developer Tools (Profiler) on Chrome.
+
+---
+
+## Redux
+
+---
+
+### Mutations on Reducers
+
+* avoid deep clones
+* shallow clone up to the property being changed
+
+---
+
+```js
+// state.list[index].options.name = "Test"
+
+state.list = [ ...state.list ];
+
+state.list[index] = {
+    ...state.list[index],
+    options: {
+        ...state.list[index].options,
+        name: "Test"
+    }
+};
+```
+
+---
+
+### Actions
+
+Improve readability and functionality by using...
+
+* small actions
+* more redux-thunk
+* action names as constants
+
+---
+
+## Styled Components
+
+---
+
+### Reusable Components
+
+* use un-opinionated styling: avoid fixed sizes/margins/offsets
+* provide a 'className' prop...
+
+---
+
+### className
+
+```jsx
+class MyComponent extends React.Component {
+    render() {
+        return {
+            <div className={this.props.className}>
+                <a href="#">test</a>
+            </div>
+        }
+    }
+}
+
+const MyComponentStyled = styled(MyComponent)`
+    background-color: red;
+`;
+```
+
+---
+
+### Extending
+
+```js
+const Button = styled.button`
+    border-radius: 3px;
+    color: gray;
+`;
+const RedButton = styled(Button)`
+    color: red;
+`;
+```
+
+---
+
+### Referring
+
+```js
+const Link = styled.`
+    color: blue;
+`;
+const Section = styled.div`
+    ${Link}:hover {
+        color: red
+    }
+`;
+```
+
+---
+
+# FIN

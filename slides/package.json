@@ -5,7 +5,9 @@
   "description": "First Steps w/ Node.js & React",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx"
+    "build": "mdx-deck build deck.mdx",
+    "start-tips": "mdx-deck deck-tips.mdx",
+    "build-tips": "mdx-deck build deck-tips.mdx"
   },
   "author": {
     "name": "Gonçalo Baltazar",
