@@ -1,0 +1,313 @@
+import { Notes, Appear } from 'mdx-deck';
+import { highlight } from 'mdx-deck/themes';
+
+import * as hacks from './hacks';
+import { CenterContainer, List, ImageTable, BackgroundImage } from './components';
+
+import logoXray from './assets/dl/xray.png';
+import logoXporter from './assets/dl/xporter.png';
+
+import bgTitle from './assets/bg-webinar/produto_PPT2.png';
+import bgNormal from './assets/bg-webinar/produto_PPT4.png';
+import bgCartoon from './assets/bg-webinar/produto_PPT5.png';
+import bgCartoonClean from './assets/bg-webinar/produto_PPT8.png';
+
+export const themes = [
+    highlight,
+    {
+        styles: {
+            a: {
+                textDecoration: 'none'
+            }
+        }
+    },
+    hacks.defaultZoom(0.70),
+    hacks.defaultBackgroundImage(bgNormal)
+];
+
+import logoXpandIT from './assets/xpandit-logo.png';
+
+<BackgroundImage src={bgTitle} />
+
+---
+
+<CenterContainer>
+
+## Gonçalo Baltazar
+
+Product Engineer @ Xpand IT
+
+</CenterContainer>
+
+<ImageTable imgMaxHeight="100px">
+    <div>
+        <img src={logoXpandIT} />
+    </div>
+</ImageTable>
+
+---
+
+## Xpand IT Products
+
+Atlassian Apps for Jira (add-ons)
+
+<ImageTable collapse imgMaxHeight="250px">
+    <div>
+        <img src={logoXray} />
+    </div>
+    <div>
+        <img src={logoXporter} style={{transform: "translateY(2px)"}} />
+    </div>
+</ImageTable>
+
+---
+
+## Webinar Files
+
+```sh
+git clone https://github.com/goncalomb/talk-intro-nodejs-react.git
+```
+
+---
+
+import logoNodejs from './assets/dl/nodejs.svg';
+import logoReact from './assets/dl/react.svg';
+
+## React
+
+Using Node.js and the HTML DOM.
+
+<ImageTable style="max-width: 700px;">
+    <div>
+        <img src={logoNodejs} />
+    </div>
+    <div>
+        <img src={logoReact} />
+    </div>
+</ImageTable>
+
+---
+
+### What is React
+
+Library for User Interfaces
+
+* Originally created by Facebook
+* Declarative
+* Reusable Components
+
+---
+
+### AngularJS
+
+```html
+<div>
+    <label>Name:</label>
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <hr>
+    <h1>Hello {{yourName}}!</h1>
+</div>
+```
+
+---
+
+### React Components
+
+```jsx
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props)
+        /* ... */
+    }
+    render() {
+        return (
+            <div>
+                <p>{this.props.name} ({this.props.age})</p>
+            </div>
+        );
+    }
+};
+```
+
+---
+
+### React Elements
+
+```js
+const el = document.createElement('a');
+el.setAttribute('href', 'https://www.google.com/');
+el.style.fontSize = '2em';
+el.innerText = 'Google';
+document.body.appendChild(el);
+```
+
+```js
+const el = React.createElement('a', {
+    href: 'https://www.google.com/',
+    style: {
+        fontSize: '2em'
+    }
+}, 'Google');
+ReactDOM.render(el, document.body);
+```
+
+---
+
+### JSX
+
+```js
+const el = React.createElement('a', {
+    href: 'https://www.google.com/',
+    style: {
+        fontSize: '2em'
+    }
+}, 'Google');
+```
+
+```jsx
+const el = (
+    <a href='https://www.google.com/' style={{ fontSize: '2em' }}>
+        Google
+    </a>
+);
+```
+
+---
+
+### Components And Props
+
+```jsx
+class MyComponent extends React.Component {
+    render() {
+        return (
+            <div>
+                <p>{this.props.name} ({this.props.age})</p>
+            </div>
+        );
+    }
+};
+ReactDOM.render(<MyComponent name="John" age={45} />, document.body);
+```
+
+---
+
+### JSX is NOT valid JavaScript
+
+Browsers and other JS engines don't run JSX directly.
+
+We use **Node.js** the **Babel Compiler**, to compile the JSX and create valid JS code.
+
+---
+
+### Demo
+
+```
+scripts/08-components.jsx
+scripts/08-components.html
+```
+
+---
+
+### State
+
+```jsx
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { text: "Hello" };
+    }
+    render() {
+        return (
+            <div>
+                <p>{this.state.text}</p>
+            </div>
+        );
+    }
+};
+ReactDOM.render(<MyComponent />, document.body);
+```
+
+```jsx
+this.setState({ text: "Bye" });
+```
+
+---
+
+### Reactivity
+
+*Changes to properties & state cause the component to re-render.*
+
+* this.props (from JSX, `<SomeComponent prop1="hi" />`)
+* this.state (this.setSetState)
+
+---
+
+### Events
+
+```jsx
+class MyComponent extends React.Component {
+    onCLick() {
+        alert("test");
+    }
+    render() {
+        return (
+            <div>
+                <button onClick={this.onClick}>Test</button>
+            </div>
+        );
+    }
+};
+ReactDOM.render(<MyComponent />, document.body);
+```
+
+---
+
+### Demo
+
+```
+scripts/08-components.jsx
+scripts/08-components.html
+```
+
+### TODO Application
+
+---
+
+### What's Next?
+
+* **Lifecycle Hooks**
+* **Context**
+* **Hooks**: a "new" way of creating components
+* **Redux**: separate library to manage a global state
+* React **Outside the Browser**: server side rendering, react-native, react-blessed, etc.
+* ...
+
+---
+
+<BackgroundImage src={bgCartoon} />
+
+# Q & A
+
+---
+
+<BackgroundImage src={bgCartoonClean} />
+
+<CenterContainer>
+
+## Webinar Files
+
+https://github.com/goncalomb/talk-intro-nodejs-react
+
+With more examples and more slides from other talks.
+
+## Gonçalo Baltazar
+
+hello@goncalomb.com
+
+goncalomb.com | github.com/goncalomb | twitter.com/goncalomb
+
+## XTech Community
+
+https://medium.com/xtechportugal
+
+</CenterContainer>

@@ -7,7 +7,9 @@
     "start": "mdx-deck deck.mdx",
     "build": "mdx-deck build deck.mdx",
     "start-tips": "mdx-deck deck-tips.mdx",
-    "build-tips": "mdx-deck build deck-tips.mdx"
+    "build-tips": "mdx-deck build deck-tips.mdx",
+    "start-webinar": "mdx-deck deck-webinar.mdx",
+    "build-webinar": "mdx-deck build deck-webinar.mdx"
   },
   "author": {
     "name": "Gonçalo Baltazar",

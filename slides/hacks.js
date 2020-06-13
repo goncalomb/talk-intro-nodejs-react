@@ -1,3 +1,6 @@
+let defaultZoom = () => { };
+let defaultBackgroundImage = () => { };
+
 if (typeof window !== 'undefined' && typeof window.document !== 'undefined') {
     // hack, global style
 
@@ -18,27 +21,35 @@ if (typeof window !== 'undefined' && typeof window.document !== 'undefined') {
 
     // hack, page up/down keys as zoom in/out
 
-    let z = 1;
+    let zoom = 1;
     let zoomStyleNode = null;
 
     function applyZoom(z) {
+        if (window.location.pathname === '/print') {
+            return;
+        }
+        zoom = z;
         if (!zoomStyleNode) {
             zoomStyleNode = document.createElement('style');
             document.head.appendChild(zoomStyleNode);
         }
-        zoomStyleNode.innerHTML = `#gatsby-focus-wrapper > :first-child > :first-child { zoom: ${z.toFixed(2)}; }`;
+        zoomStyleNode.innerHTML = `[class$="-Slide"] { zoom: ${z.toFixed(2)}; }`;
     }
+
+    defaultZoom = (z) => {
+        if (!zoomStyleNode) {
+            applyZoom(z);
+        }
+    };
 
     document.addEventListener('keydown', (e) => {
         switch (e.key) {
             case 'PageUp':
-                z = Math.min(2, z + 0.05);
-                applyZoom(z);
+                applyZoom(Math.min(2, zoom + 0.05));
                 e.stopPropagation();
                 break;
             case 'PageDown':
-                z = Math.max(0.25, z - 0.05);
-                applyZoom(z);
+                applyZoom(Math.max(0.25, zoom - 0.05));
                 e.stopPropagation();
                 break;
             default: break;
@@ -47,26 +58,49 @@ if (typeof window !== 'undefined' && typeof window.document !== 'undefined') {
 
     // cursor timeout and highlight
 
-    let timeoutCursorHide = 0;
-    let cursorHighlight = document.createElement('div');
-    cursorHighlight.classList.add('cursor-highlight');
-    document.body.appendChild(cursorHighlight);
+    if (window.location.pathname !== '/print') {
+        let timeoutCursorHide = 0;
+        let cursorHighlight = document.createElement('div');
+        cursorHighlight.classList.add('cursor-highlight');
+        document.body.appendChild(cursorHighlight);
 
-    function setCursorHideTimeout() {
-        document.body.style.cursor = 'unset';
-        cursorHighlight.style.display = 'block';
-        clearTimeout(timeoutCursorHide);
-        timeoutCursorHide = setTimeout(() => {
-            document.body.style.cursor = 'none';
-            cursorHighlight.style.display = 'none';
-        }, 500);
+        function setCursorHideTimeout() {
+            document.body.style.cursor = 'unset';
+            cursorHighlight.style.display = 'block';
+            clearTimeout(timeoutCursorHide);
+            timeoutCursorHide = setTimeout(() => {
+                document.body.style.cursor = 'none';
+                cursorHighlight.style.display = 'none';
+            }, 500);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            setCursorHideTimeout();
+            cursorHighlight.style.left = `${e.x}px`;
+            cursorHighlight.style.top = `${e.y}px`;
+        });
+        setCursorHideTimeout();
     }
 
-    document.addEventListener('mousemove', (e) => {
-        setCursorHideTimeout();
-        cursorHighlight.style.left = `${e.x}px`;
-        cursorHighlight.style.top = `${e.y}px`;
-    });
+    // bg image
 
-    setCursorHideTimeout();
+    let bgStyleNode = null;
+
+    defaultBackgroundImage = (src) => {
+        if (!bgStyleNode && window.location.pathname !== '/print' /* TODO: make bg work in print mode */) {
+            bgStyleNode = document.createElement('style');
+            bgStyleNode.innerHTML = `
+            [class$="-Slide"] {
+                background-image: url("${src}");
+                background-size: cover;
+            }
+            `;
+            document.head.appendChild(bgStyleNode);
+        }
+    }
 }
+
+export {
+    defaultZoom,
+    defaultBackgroundImage
+};

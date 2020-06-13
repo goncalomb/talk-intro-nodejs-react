@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 
 export const CenterContainer = styled.div`
@@ -33,3 +34,14 @@ export const ImageTable = styled.div`
         margin: auto;
     }
 `;
+
+export const BackgroundImage = (props) => (window.location.pathname === '/print' /* TODO: make bg work in print mode */ ? null :
+    <style>
+        {`
+        [class$="-Slide"] {
+            background-image: url("${props.src}");
+            background-size: cover;
+        }
+        `}
+    </style>
+);
