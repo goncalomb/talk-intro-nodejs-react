@@ -35,7 +35,7 @@ import logoXpandIT from './assets/xpandit-logo.png';
 
 ## Gonçalo Baltazar
 
-Product Engineer @ Xpand IT
+Web Developer (Full Stack) @ Xpand IT
 
 </CenterContainer>
 
@@ -70,31 +70,42 @@ git clone https://github.com/goncalomb/talk-intro-nodejs-react.git
 
 ---
 
-import logoNodejs from './assets/dl/nodejs.svg';
-import logoReact from './assets/dl/react.svg';
-
 ## React
 
-Using Node.js and the HTML DOM.
-
-<ImageTable style="max-width: 700px;">
-    <div>
-        <img src={logoNodejs} />
-    </div>
-    <div>
-        <img src={logoReact} />
-    </div>
-</ImageTable>
-
----
-
-### What is React
-
-Library for User Interfaces
+JavaScript Library for User Interfaces
 
 * Originally created by Facebook
 * Declarative
 * Reusable Components
+
+---
+
+import logoNodejs from './assets/dl/nodejs.svg';
+import logoWebpack from './assets/dl/webpack.svg';
+import logoReact from './assets/dl/react.svg';
+
+### React
+
+Using Node.js and the HTML DOM.
+
+* Node.js: JS Runtime
+* Babel: transpiler
+* Webpack: file bundler
+
+<ImageTable style="max-width: 700px;">
+    <div>
+        <img src={logoNodejs} />
+        <figcaption>Node.js</figcaption>
+    </div>
+    <div>
+        <img src={logoReact} />
+        <figcaption>React</figcaption>
+    </div>
+    <div>
+        <img src={logoWebpack} />
+        <figcaption>Webpack</figcaption>
+    </div>
+</ImageTable>
 
 ---
 
@@ -112,6 +123,8 @@ Library for User Interfaces
 ---
 
 ### React Components
+
+ECMAScript 2015 (ES6)
 
 ```jsx
 class MyComponent extends React.Component {
@@ -237,8 +250,13 @@ this.setState({ text: "Bye" });
 
 *Changes to properties & state cause the component to re-render.*
 
-* this.props (from JSX, `<SomeComponent prop1="hi" />`)
-* this.state (this.setSetState)
+#### this.props
+
+JSX, `<SomeComponent prop1="hi" />`
+
+#### this.state
+
+this.setState({ state1: "bye" })
 
 ---
 
@@ -279,7 +297,7 @@ scripts/08-components.html
 * **Context**
 * **Hooks**: a "new" way of creating components
 * **Redux**: separate library to manage a global state
-* React **Outside the Browser**: server side rendering, react-native, react-blessed, etc.
+* **React Outside the Browser**: server side rendering, react-native, react-blessed, etc.
 * ...
 
 ---
@@ -287,6 +305,30 @@ scripts/08-components.html
 <BackgroundImage src={bgCartoon} />
 
 # Q & A
+
+<Appear>
+<CenterContainer>
+
+**Can React run on the Server?**
+
+*ReactDOMServer (server-side rendering)*
+
+</CenterContainer>
+<CenterContainer>
+
+**What about routing?**
+
+*Next.js and friends...*
+
+</CenterContainer>
+<CenterContainer>
+
+**And other platforms?**
+
+*React Native (IOS, Android, UWP), Electron (Desktop)*
+
+</CenterContainer>
+</Appear>
 
 ---
 
@@ -298,16 +340,14 @@ scripts/08-components.html
 
 https://github.com/goncalomb/talk-intro-nodejs-react
 
-With more examples and more slides from other talks.
+With more examples and more slides.
 
 ## Gonçalo Baltazar
 
-hello@goncalomb.com
+goncalo.baltazar@xpand-it.com | hello@goncalomb.com
 
-goncalomb.com | github.com/goncalomb | twitter.com/goncalomb
+goncalomb.com | github.com/goncalomb
 
-## XTech Community
-
-https://medium.com/xtechportugal
+## Survey / Talent / Send Questions
 
 </CenterContainer>
