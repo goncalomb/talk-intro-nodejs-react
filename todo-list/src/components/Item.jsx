@@ -3,6 +3,7 @@ import React from 'react';
 export default class Item extends React.Component {
     constructor(props) {
         super(props);
+        // https://reactjs.org/docs/handling-events.html
         this.onDelete = this.onDelete.bind(this);
     }
 

@@ -9,12 +9,22 @@ export default class ConfigurationForm extends React.Component {
 
         this.state = {
             messageBeingWritten: "",
-            items: []
+            items: this.loadItems()
         };
 
+        // https://reactjs.org/docs/handling-events.html
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onDelete = this.onDelete.bind(this);
+    }
+
+    loadItems() {
+        const items = window.localStorage.getItem("todo-items");
+        return items ? JSON.parse(items) : [];
+    }
+
+    saveItems(items) {
+        window.localStorage.setItem("todo-items", JSON.stringify(items))
     }
 
     onSubmit(e) {
@@ -26,6 +36,8 @@ export default class ConfigurationForm extends React.Component {
                     items: [...state.items, { id: uuid.v4(), message: state.messageBeingWritten }]
                 };
             }
+        }, () => {
+            this.saveItems(this.state.items)
         });
     }
 
@@ -43,6 +55,8 @@ export default class ConfigurationForm extends React.Component {
                 items.splice(i, 1);
                 return { items }
             }
+        }, () => {
+            this.saveItems(this.state.items)
         });
     }
 
