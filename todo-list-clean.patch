@@ -1,0 +1,90 @@
+diff --git a/todo-list/src/components/Item.jsx b/todo-list/src/components/Item.jsx
+index 1740c2a..10da93d 100644
+--- a/todo-list/src/components/Item.jsx
++++ b/todo-list/src/components/Item.jsx
+@@ -14,10 +14,7 @@ export default class Item extends React.Component {
+     render() {
+         return (
+             <li>
+-                <span>
+-                    <span>{this.props.message}</span>
+-                    <a href="#" onClick={this.onDelete}>DEL</a>
+-                </span>
++                {/* span span del */}
+             </li>
+         );
+     }
+diff --git a/todo-list/src/components/List.jsx b/todo-list/src/components/List.jsx
+index 6a7341b..782491c 100644
+--- a/todo-list/src/components/List.jsx
++++ b/todo-list/src/components/List.jsx
+@@ -9,7 +9,7 @@ export default class ConfigurationForm extends React.Component {
+ 
+         this.state = {
+             messageBeingWritten: "",
+-            items: this.loadItems()
++            items: [] /* loadItems */
+         };
+ 
+         // https://reactjs.org/docs/handling-events.html
+@@ -18,46 +18,20 @@ export default class ConfigurationForm extends React.Component {
+         this.onDelete = this.onDelete.bind(this);
+     }
+ 
+-    loadItems() {
+-        const items = window.localStorage.getItem("todo-items");
+-        return items ? JSON.parse(items) : [];
+-    }
+-
+-    saveItems(items) {
+-        window.localStorage.setItem("todo-items", JSON.stringify(items))
+-    }
++    /* loadItems */
++    /* saveItems */
+ 
+     onSubmit(e) {
+         e.preventDefault();
+-        this.setState(state => {
+-            if (state.messageBeingWritten) {
+-                return {
+-                    messageBeingWritten: "",
+-                    items: [...state.items, { id: uuid.v4(), message: state.messageBeingWritten }]
+-                };
+-            }
+-        }, () => {
+-            this.saveItems(this.state.items)
+-        });
++        /* setState */
+     }
+ 
+     onChange(e) {
+-        this.setState({
+-            messageBeingWritten: e.target.value
+-        });
++        /* setState */
+     }
+ 
+     onDelete(id) {
+-        this.setState(state => {
+-            const i = state.items.findIndex(item => item.id == id);
+-            if (i !== -1) {
+-                const items = [...state.items];
+-                items.splice(i, 1);
+-                return { items }
+-            }
+-        }, () => {
+-            this.saveItems(this.state.items)
+-        });
++        /* setState */
+     }
+ 
+     render() {
+@@ -73,7 +47,7 @@ export default class ConfigurationForm extends React.Component {
+                     <button type="submit">Add</button>
+                 </form>
+                 <ul>
+-                    {this.state.items.map(item => <Item key={item.id} id={item.id} message={item.message} onDelete={this.onDelete} />)}
++                    {/* items map */}
+                 </ul>
+             </div>
+         );

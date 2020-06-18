@@ -6,7 +6,8 @@ Gonçalo Baltazar (goncalomb.com), 2020
 
 * `slides/` - The presentation slides made with 'mdx-deck'.
 * `scripts/` - Example scripts about Node.js and React.
-* `message-board/` - Demo React application.
+* `message-board/` - Demo Message Board application, react with styled-components and server.
+* `todo-list/` - Demo TODO List application, React.
 
 ## Questions?
 
@@ -68,3 +69,10 @@ Some important topics and libraries to research next:
 * Redux, for managing a global state: https://react-redux.js.org/
 * React, framework with routing, server-side rendering and more: https://nextjs.org/
 * Hooks (new feature in React 16.8): https://reactjs.org/docs/hooks-intro.html
+
+### Other
+
+```
+git diff --diff-algorithm=minimal todo-list/ > todo-list-clean.patch
+git apply todo-list-clean.patch
+```
