@@ -45,3 +45,7 @@ export const BackgroundImage = (props) => (window.location.pathname === '/print'
         `}
     </style>
 );
+
+export const PrintAlternative = (props) => (
+    window.location.pathname === '/print' ? props.children : null
+);
